@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Pessoal</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <!-- agrupa o meu site para criar o efeito de cartão -->
+    <div class="conteiner"> 
+        <!-- Topo do site -->
+         <!--lembre do role-->
+        <header>
+            <!-- menu -->
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li>|</li>
+                    <li><a href="#">Portifólio</a></li>
+                    <li>|</li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+            <hr class="line">
+        </header>
+        <main>
+            <!--foto-->
+            <section class="profile">
+                <img src="./img/img.png" alt="Foto Pessoal">
+            </section>
+            <!--Conteúdo-->
+            <section class="content">
+                <article>
+                    <!--Home-->
+                    <section class="pages">
+                        <h1>Home</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum iure consequatur, sequi eos officia tempore veniam, blanditiis sit esse corporis voluptatem? Eaque placeat excepturi nostrum tenetur necessitatibus possimus ab perspiciatis.</p>
+                    </section>
+                    <!--Portifólio-->
+                    <section class="pages">
+                        <h1>Portifólio</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum iure consequatur, sequi eos officia tempore veniam, blanditiis sit esse corporis voluptatem? Eaque placeat excepturi nostrum tenetur necessitatibus possimus ab perspiciatis.</p>
+                    </section>
+                    <!--Contato-->
+                    <section class="pages">
+                        <h1>Contato</h1>
+                        <form action="#" method="post"> 
+                            <div class="box">
+                            <input type="text" id="frmnome" name="nome" placeholder="Nome" required>
+                            <input type="text" id="frmemail" name="email" placeholder="E-mail" required>
+                            </div>
+                            <div class="box">
+                            <input type="text" id="frmtelefone" name="telefone" placeholder="Telefone" required>
+                            <input type="text" id="frmassunto" name="assunto" placeholder="Assunto" required>
+                            </div>
+                            <!--
+                            <select id="selassunto" name="assunto">
+                                <option value="" disabled selected>Selecione uma opção</option>
+                                <option value="Contratação">Contratação</option>
+                                <option value="Parceria">Parceria</option>
+                                <option value="Jogar bola">Jogar bola</option>
+                                <option value="Tomar um café">Tomar um café</option>
+                            </select>
+                            -->
+                            <div class="box2">
+                            <textarea id="frmmensagem" cols="20" rows="5" name="mensagem" placeholder="Mensagem"></textarea>
+                            <input type="submit" id="btnenviar" value="Enviar mensagem">
+                            </div>
+                        </form>
+                    </section>
+                </article>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
