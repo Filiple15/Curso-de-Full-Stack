@@ -15,11 +15,11 @@
             <!-- menu -->
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="#" onclick="mostrarConteudo('home')">Home</a></li>
                     <li>|</li>
-                    <li><a href="#">Portifólio</a></li>
+                    <li><a href="#" onclick="mostrarConteudo('portifolio')">Portifólio</a></li>
                     <li>|</li>
-                    <li><a href="#">Contato</a></li>
+                    <li><a href="#" onclick="mostrarConteudo('contato')">Contato</a></li>
                 </ul>
             </nav>
             <hr class="line">
@@ -33,19 +33,19 @@
             <section class="content">
                 <article>
                     <!--Home-->
-                    <section class="pages">
+                    <section id = "home" class="pages">
                         <h1>Home</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum iure consequatur, sequi eos officia tempore veniam, blanditiis sit esse corporis voluptatem? Eaque placeat excepturi nostrum tenetur necessitatibus possimus ab perspiciatis.</p>
                     </section>
                     <!--Portifólio-->
-                    <section class="pages">
+                    <section id = "portifolio" class="pages">
                         <h1>Portifólio</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum iure consequatur, sequi eos officia tempore veniam, blanditiis sit esse corporis voluptatem? Eaque placeat excepturi nostrum tenetur necessitatibus possimus ab perspiciatis.</p>
                     </section>
                     <!--Contato-->
-                    <section class="pages">
-                        <h1>Contato</h1>
-                        <form action="#" method="post"> 
+                    <section id = "contato" class="pages">
+                        <h3>Contato</h3>
+                        <form action="https://formsubmit.co/joaofilip444@gmail.com" method="post"> 
                             <div class="box">
                             <input type="text" id="frmnome" name="nome" placeholder="Nome" required>
                             <input type="text" id="frmemail" name="email" placeholder="E-mail" required>
@@ -73,5 +73,11 @@
             </section>
         </main>
     </div>
+    <script>
+        function mostrarConteudo(page){
+            document.querySelectorAll('.pages').forEach(el => el.style.display = 'none');
+            document.getElementById(page).style.display = 'block';
+        }
+    </script>
 </body>
 </html>
