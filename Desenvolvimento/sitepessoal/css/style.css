@@ -1,9 +1,21 @@
 /* style.css */
+:root{
+    --cor-conteiner: #ededed;
+    --cor-menu: #353434;
+    --color-title: #c6c4c4;
+    --lenght-title: 24px;
+    --color-text: #000;
+    --lenght-text: 30px;
+    
+}
+
+
 
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;       
+    box-sizing: border-box; 
+         
 }
 
 body {
@@ -17,7 +29,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 60%;
-    background-color: rgb(219, 219, 219);
+    background-color: var(--cor-conteiner);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -42,16 +54,17 @@ nav ul {
 
 nav ul li {
     display: inline;
-    font-size: 24px;
+    font-size: var(--lenght-title);
+    
 }
 nav ul li a {
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: var(--cor-menu);
     font-weight: bold;
 }
 
 nav ul li a:hover {
-    color: rgb(78, 65, 65);
+    color: #4f4f4f;
 
 }
 #line {
@@ -68,6 +81,9 @@ fomatação do conteudo pricipal
 main {
     display: flex;
     width: 100%;
+    justify-items: center;
+    height: auto;
+
 
 }
 
@@ -90,9 +106,9 @@ main {
 
 .pages {
     display: none;
-    font-size: 25px;
+    font-size: var(--lenght-title);
     text-align: center;
-    color: rgb(65, 57, 57);
+    color: var(--color-text);
     
     
 }
@@ -111,7 +127,7 @@ form input {
     margin: 10px;
 
     color: rgb(0, 0, 0);
-    background-color: rgb(235, 231, 227);
+    background-color: var(--cor-conteiner);
     border-radius: 10px;
     border-color: rgb(13, 24, 126);
     padding: 3px;
@@ -120,21 +136,24 @@ form input {
 
 }
 
-.textarea {
+textarea {
     resize: none;
 }
+
 .box {
     display: flex;
     justify-content: space-between;
 
 }
 
-/* .box2 {
+.box2 {
     text-align: center;
-    border-color: blueviolet;
-    justify-content: center;
-    height: 50px;
-} */
+    border-color: var(--color-text);
+    flex: auto;
+    justify-items: center;
+    align-items: center;
+    
+} 
 
 @media (max-width: 1024px) {
     main {
@@ -173,7 +192,7 @@ form input {
     }
 
     .profile {
-        height: 75%;
+        height: 100%;
         
         
     }

@@ -13,20 +13,14 @@
         </h1>
     </header>
     <main>
-        <div id="informacoes">
-            <label id="numero">
-                numero inteiro
-            </label>
-            <input type="text" id="numero" required autofocus placeholder="Informe seu numero" >
-            <button>
-                Mostrar resultado
-            </button>
+        <div class = "entradas" id="informacoes">
+            <label for="numero">numero inteiro</label>
+            <input type="number" id="numero" required autofocus placeholder="Informe seu numero" >
+            <button id="mostrarResultados">Mostrar resultado</button>
         </div>
-        <div id="resoltados">
+        <div class = "saida" id="resultados">
             <output>
-                <div id="mensagem">
-
-                </div>
+                <div id="mensagem"></div>
             </output>
         </div>
         <script src="./ParOuImpar.js"></script>
