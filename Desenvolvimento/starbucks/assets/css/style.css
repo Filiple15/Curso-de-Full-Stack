@@ -166,5 +166,42 @@ body {
     object-position: center;
     
 }
+/* FOOTER - INICIO */
+ 
+ 
+.footer-area {
+    width: 100vw;
+    height: 500px;
+    display: flex;
+    padding: 3%;
+    margin-top: 30px;
+}
+.footer-content {
+    display: flex;
+}
+.footer-row{
+    display: flex;
+}
+.footer-col{
+    display: flex;
 
-
+    
+ 
+}
+.footer-col ul{
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+.footer-col li{
+    display: flex;
+    padding: 2%;
+}
+.footer-col li a{
+    display: flex;
+    text-decoration: none;
+    color: #B2B2B2;
+    
+}
+ 
