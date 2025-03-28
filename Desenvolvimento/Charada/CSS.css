@@ -1,0 +1,9 @@
+.inicio {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+
+.img {
+    width: 50%;
+}
