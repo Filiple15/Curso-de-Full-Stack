@@ -1,0 +1,676 @@
+/*
+ * ===== VARIÁVEIS GLOBAIS =====
+ * Define variáveis CSS reutilizáveis em todo o documento
+ */
+ :root {
+    --primary-color: #2E8B57;       /* Cor primária (verde escuro) */
+    --secondary-color: #88b198;     /* Cor secundária (verde claro) */
+    --accent-color: #ff6b6b;        /* Cor de destaque (rosa/vermelho) */
+    --text-color: #333;             /* Cor padrão para texto */
+    --light-bg: #f9f9f9;            /* Cor de fundo clara */
+    --dark-bg: #2c3e50;             /* Cor de fundo escura */
+    --header-height: 100px;          /* Altura do cabeçalho */
+}
+ 
+/*
+ * ===== RESET E CONFIGURAÇÕES GERAIS =====
+ * Remove margens, paddings e bordas padrão e define box-sizing para border-box
+ */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box; /* Faz com que padding e border não aumentem o tamanho do elemento */
+}
+ 
+/*
+ * Configurações gerais do corpo do documento
+ */
+body {
+    font-family: 'SoDo Sans', 'Nunito', sans-serif; /* Define a família de fontes */
+    width: 100%; /* Largura total */
+    min-height: 100vh; /* Altura mínima igual à altura da viewport */
+    display: flex; /* Ativa flexbox */
+    flex-direction: column; /* Organiza os filhos em coluna */
+    background-color: #ffffff; /* Cor de fundo branca */
+    color: var(--text-color); /* Cor do texto usando variável */
+    line-height: 1.6; /* Espaçamento entre linhas */
+    padding-top: 0px; /* Remove padding superior */
+}
+ 
+/*
+ * ===== IMPORTAÇÃO DE FONTES =====
+ * Importa e define fontes personalizadas
+ */
+ 
+/* Importa a fonte Nunito do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+ 
+/* Define a fonte personalizada SoDo Sans em três pesos diferentes */
+@font-face {
+    font-family: 'SoDo Sans';
+    src: url('./fonts/SoDoSans-Bold.woff'); /* Caminho para o arquivo da fonte */
+    font-weight: bold;
+    font-style: normal; /* Estilo da fonte */
+}
+ 
+@font-face {
+    font-family: 'SoDo Sans';
+    src: url('./fonts/SoDoSans-Regular.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+ 
+@font-face {
+    font-family: 'SoDo Sans';
+    src: url('./fonts/SoDoSans-SemiBold.woff');
+    font-weight: 600; /* Semi-negrito */
+    font-style: normal;
+}
+ 
+/*
+ * ===== HEADER CORRIGIDO =====
+ * Estilização do cabeçalho fixo no topo da página
+ */
+header {
+    position: fixed; /* Fixa o cabeçalho no topo */
+    top: 0;
+    left: 0;
+    width: 100%; /* Largura total */
+    height: var(--header-height); /* Altura usando variável */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    background-color: rgba(255, 255, 255, 0.98); /* Fundo branco com leve transparência */
+    backdrop-filter: blur(5px); /* Efeito de desfoque no fundo */
+    -webkit-backdrop-filter: blur(5px); /* Versão para Safari */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Borda inferior sutil */
+    transition: all 0.3s ease; /* Transição suave para animações */
+}
+ 
+/*
+ * Efeito aplicado ao cabeçalho quando a página é rolada
+ */
+header.scrolled {
+    height: 80px; /* Altura reduzida */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra mais pronunciada */
+}
+ 
+/*
+ * Container principal do cabeçalho
+ */
+.area-header {
+    max-width: 1400px; /* Largura máxima */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    padding: 0 2rem; /* Espaçamento interno */
+    height: 100%; /* Altura total do cabeçalho */
+    display: flex; /* Ativa flexbox */
+    align-items: center; /* Centraliza verticalmente */
+    position: relative; /* Permite posicionamento relativo de elementos filhos */
+}
+ 
+/*
+ * Área do logo
+ */
+.area-logo {
+    height: 100%; /* Altura total do cabeçalho */
+    width: 120px; /* Largura fixa */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+ 
+/*
+ * Imagem do logo
+ */
+.area-logo-img {
+    width: 80px; /* Largura fixa */
+    height: 80%; /* Altura proporcional */
+    border-radius: 100%; /* Torna a imagem circular */
+    transition: transform 0.3s ease; /* Transição suave para hover */
+}
+ 
+/*
+ * Efeito de hover na imagem do logo
+ */
+.area-logo-img:hover {
+    transform: scale(1.15) translateY(1px); /* Aumenta ligeiramente e desloca para baixo */
+}
+ 
+/*
+ * Área de navegação principal
+ */
+.area-nav {
+    height: 100%; /* Altura total do cabeçalho */
+    flex: 1; /* Ocupa todo o espaço disponível */
+}
+ 
+/*
+ * Lista de navegação
+ */
+.nav-list {
+    margin-left: 80px; /* Margem à esquerda */
+    height: 100%; /* Altura total */
+    width: 100%; /* Largura total */
+    display: flex; /* Ativa flexbox */
+    list-style: none; /* Remove marcadores de lista */
+    gap: 20px; /* Espaçamento entre itens */
+}
+ 
+/*
+ * Itens individuais da lista de navegação
+ */
+.nav-list-item {
+    padding: 8px; /* Espaçamento interno */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    color: black; /* Cor do texto */
+    text-transform: uppercase; /* Transforma texto em maiúsculas */
+    letter-spacing: 0.7px; /* Espaçamento entre letras */
+    position: relative; /* Permite posicionamento absoluto de elementos filhos */
+}
+ 
+/*
+ * Efeito de hover nos itens de navegação
+ */
+.nav-list-item:hover a {
+    color: var(--secondary-color); /* Muda cor ao passar o mouse */
+    cursor: pointer; /* Muda cursor para pointer */
+}
+ 
+/*
+ * Links dentro dos itens de navegação
+ */
+.nav-list-item a {
+    text-decoration: none; /* Remove sublinhado */
+    color: #000000; /* Cor do texto */
+    font-size: 15px; /* Tamanho da fonte */
+    transition: color 0.3s ease; /* Transição suave de cor */
+    position: relative; /* Permite posicionamento absoluto de pseudo-elementos */
+    padding: 8px 0; /* Espaçamento interno */
+}
+ 
+/*
+ * Efeito de underline animado nos links
+ */
+.nav-list-item a::after {
+    content: ''; /* Conteúdo vazio */
+    position: absolute; /* Posicionamento absoluto em relação ao link */
+    bottom: 0; /* Alinha na base */
+    left: 0; /* Alinha à esquerda */
+    width: 0; /* Inicialmente sem largura */
+    height: 2px; /* Altura do underline */
+    background-color: var(--primary-color); /* Cor do underline */
+    transition: width 0.3s ease; /* Transição suave da largura */
+}
+ 
+/*
+ * Efeito de hover no underline
+ */
+.nav-list-item:hover a::after {
+    width: 100%; /* Expandir para largura total */
+}
+ 
+/*
+ * Itens de menu que possuem submenu
+ */
+.has-submenu {
+    position: relative; /* Permite posicionamento absoluto do submenu */
+}
+ 
+/*
+ * Estilização do submenu
+ */
+.submenu {
+    position: absolute; /* Posicionamento absoluto em relação ao item pai */
+    top: calc(100% + 5px); /* Posiciona abaixo do item com pequeno espaçamento */
+    left: 0;
+    width: 200px; /* Largura fixa */
+    background-color: #fff; /* Fundo branco */
+    list-style: none; /* Remove marcadores de lista */
+    padding: 10px 0; /* Espaçamento interno */
+    z-index: 1100; /* Garante que fique acima do cabeçalho */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra sutil */
+    border-radius: 8px; /* Bordas arredondadas */
+    opacity: 0; /* Inicialmente invisível */
+    visibility: hidden; /* Inicialmente escondido */
+    transform: translateY(10px); /* Deslocado para baixo */
+    transition: all 0.3s ease; /* Transição suave */
+}
+ 
+/*
+ * Links dentro do submenu
+ */
+.submenu li a {
+    display: block; /* Transforma em bloco */
+    padding: 8px 20px; /* Espaçamento interno */
+    text-decoration: none; /* Remove sublinhado */
+    color: #333; /* Cor do texto */
+    transition: background 0.3s; /* Transição suave de fundo */
+    font-size: 14px; /* Tamanho da fonte */
+    text-transform: none; /* Mantém capitalização original */
+}
+ 
+/*
+ * Efeito de hover nos itens do submenu
+ */
+.submenu li a:hover {
+    background: #f0f0f0; /* Fundo cinza claro ao passar o mouse */
+}
+ 
+/*
+ * Mostra o submenu ao passar o mouse no item pai
+ */
+.nav-list-item:hover .submenu {
+    opacity: 1; /* Torna visível */
+    visibility: visible; /* Torna visível */
+    transform: translateY(0); /* Remove deslocamento */
+}
+ 
+/*
+ * Área do botão de contato
+ */
+.area-contato-btn {
+    height: 100%; /* Altura total do cabeçalho */
+    min-width: 120px; /* Largura mínima */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+ 
+/*
+ * Estilização do botão de contato
+ */
+.area-contato-btn a {
+    padding: 8px 12px; /* Espaçamento interno */
+    background-color: var(--secondary-color); /* Cor de fundo */
+    border-radius: 10px; /* Bordas arredondadas */
+    font-weight: 600; /* Peso da fonte */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+    font-size: 13px; /* Tamanho da fonte */
+    color: #000000; /* Cor do texto */
+    white-space: nowrap; /* Evita quebra de linha */
+    text-decoration: none; /* Remove sublinhado */
+    transition: all 0.3s ease; /* Transição suave */
+}
+ 
+/*
+ * Efeito de hover no botão de contato
+ */
+.area-contato-btn:hover a {
+    background-color: var(--primary-color); /* Muda cor de fundo */
+    color: white; /* Muda cor do texto */
+    transform: scale(1.05); /* Aumenta ligeiramente */
+    box-shadow: 0 2px 10px rgba(132, 143, 128, 0.5); /* Adiciona sombra */
+}
+ 
+/*
+ * Área de localização da loja
+ */
+.nav-store-location {
+    min-width: 160px; /* Largura mínima */
+    height: 100%; /* Altura total do cabeçalho */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+ 
+/*
+ * Link de localização da loja
+ */
+.store-location {
+    height: 30px; /* Altura fixa */
+    text-decoration: none; /* Remove sublinhado */
+    color: #000000; /* Cor do texto */
+    font-size: 14px; /* Tamanho da fonte */
+    white-space: nowrap; /* Evita quebra de linha */
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    gap: 5px; /* Espaçamento entre ícone e texto */
+}
+ 
+/*
+ * Efeito de hover no link de localização
+ */
+.nav-store-location:hover a {
+    color: var(--secondary-color); /* Muda cor ao passar o mouse */
+    cursor: pointer; /* Muda cursor para pointer */
+}
+ 
+/*
+ * ===== SEÇÃO EMOCIONAL =====
+ * Seção com apelo emocional e estatísticas
+ */
+.pts-nossaVisao {
+    background-color: var(--light-bg); /* Cor de fundo clara */
+    padding: 3rem 0; /* Espaçamento interno */
+    border-bottom: 1px solid #e0e0e0; /* Borda inferior sutil */
+}
+ 
+/*
+ * Container da seção emocional
+ */
+.pts-visao {
+    max-width: 800px; /* Largura máxima */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    padding: 0 2rem; /* Espaçamento interno */
+}
+ 
+/*
+ * Título da seção emocional
+ */
+.pts-nossaVisao h2 {
+    color: var(--primary-color); /* Cor do texto */
+    font-size: 2rem; /* Tamanho da fonte */
+    text-align: center; /* Centraliza texto */
+    margin-bottom: 2rem; /* Espaçamento inferior */
+    text-transform: uppercase; /* Transforma em maiúsculas */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+}
+ 
+/*
+ * Parágrafos da seção emocional
+ */
+.pts-nossaVisao p {
+    margin-bottom: 1.5rem; /* Espaçamento inferior */
+    line-height: 1.8; /* Espaçamento entre linhas */
+    font-size: 1.1rem; /* Tamanho da fonte */
+}
+
+.pts-stories-paragrafo {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 100%;
+    height: 100%;
+    color: #19663a;
+    
+
+}
+ 
+/*
+ * Texto em negrito na seção emocional
+ */
+.pts-nossaVisao strong {
+    color: var(--primary-color); /* Cor do texto */
+    font-weight: 600; /* Peso da fonte */
+}
+ 
+/*
+ * Container de estatísticas
+ */
+.pts-stats {
+    display: flex; /* Ativa flexbox */
+    justify-content: space-around; /* Distribui espaço uniformemente */
+    flex-wrap: wrap; /* Permite quebra de linha */
+    margin: 2rem 0; /* Espaçamento externo */
+    gap: 1rem; /* Espaçamento entre itens */
+    flex-direction: column;
+    flex: auto;
+    
+    
+}
+ 
+/*
+ * Itens individuais de estatística
+ */
+.pts-stat-item {
+    text-align: center; /* Centraliza texto */
+    flex: 1; /* Ocupa espaço disponível */
+    min-width: 150px; /* Largura mínima */
+    padding: 1rem; /* Espaçamento interno */
+    background-color: white; /* Cor de fundo */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra sutil */
+}
+ 
+/*
+ * Número nas estatísticas
+ */
+.pts-stat-number {
+    display: block; /* Transforma em bloco */
+    font-size: 2rem; /* Tamanho grande */
+    font-weight: bold; /* Negrito */
+    color: var(--primary-color); /* Cor do texto */
+    line-height: 1; /* Espaçamento entre linhas */
+}
+ 
+/*
+ * Rótulo nas estatísticas
+ */
+.pts-stat-label {
+    font-size: 0.9rem; /* Tamanho pequeno */
+    color: #666; /* Cor do texto cinza */
+}
+
+/* Novo contêiner para alinhar os elementos lado a lado */
+.conteudo {
+    display: flex;
+    align-items: center;  /* Alinha verticalmente os itens */
+    gap: 20px;            /* Espaço entre o texto e a imagem */
+}
+
+/* Permite que o texto ocupe o espaço disponível */
+.conteudo .pts-stories {
+    flex: 1;
+}
+
+/* Estilos para a imagem já existentes */
+.profile {
+    width: 200px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.profile img {
+    width: 200px;        /* ajuste conforme necessário */
+    height: 200px;       /* ajuste conforme necessário */
+    object-fit: cover;   /* garante que a imagem se ajuste ao contêiner */
+    border-radius: 70%;  /* deixa a imagem 100% redonda */
+}
+
+.foto-profile {
+    width: 200px;        /* ajuste conforme necessário */
+    height: 200px;       /* ajuste conforme necessário */
+    display: flex;
+}
+ 
+/*
+ * Texto final da seção emocional
+ */
+.pts-emotional-final {
+    font-style: italic; /* Texto em itálico */
+    font-size: 1.2rem; /* Tamanho da fonte */
+    color: #555; /* Cor do texto */
+    text-align: center; /* Centraliza texto */
+    margin: 2rem 0; /* Espaçamento externo */
+    padding: 1rem; /* Espaçamento interno */
+    border-left: 3px solid var(--accent-color); /* Borda lateral colorida */
+    background-color: rgba(255, 255, 255, 0.7); /* Fundo branco semi-transparente */
+}
+ 
+/*
+ * Chamada para ação na seção emocional
+ */
+.pts-call-to-action {
+    text-align: center; /* Centraliza texto */
+    font-weight: bold; /* Negrito */
+    font-size: 1.3rem; /* Tamanho da fonte */
+    color: var(--primary-color); /* Cor do texto */
+    margin-top: 2rem; /* Espaçamento superior */
+    animation: pulse 2s infinite; /* Animação de pulsar */
+}
+ 
+/*
+ * Animação de pulsar para a chamada para ação
+ */
+@keyframes pulse {
+    0% { transform: scale(1); } /* Tamanho normal */
+    50% { transform: scale(1.05); } /* Aumenta ligeiramente */
+    100% { transform: scale(1); } /* Volta ao normal */
+}
+ 
+/*
+ * ===== RODAPÉ =====
+ * Estilização do rodapé do site
+ */
+.pts-site-footer {
+    width: 100%; /* Largura total */
+    background: linear-gradient(135deg, var(--dark-bg), #1a252f); /* Gradiente de fundo */
+    color: white; /* Cor do texto */
+    padding: 3rem 0; /* Espaçamento interno */
+    margin-top: auto; /* Empurra para baixo em layouts flex */
+}
+ 
+/*
+ * Conteúdo do rodapé
+ */
+.pts-footer-content {
+    max-width: 1200px; /* Largura máxima */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    display: grid; /* Ativa grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colunas responsivas */
+    gap: 2rem; /* Espaçamento entre colunas */
+    padding: 0 2rem; /* Espaçamento interno */
+}
+ 
+/*
+ * Seções individuais do rodapé
+ */
+.pts-footer-section h2, .pts-footer-section h3 {
+    margin-bottom: 1rem; /* Espaçamento inferior */
+    color: var(--secondary-color); /* Cor do texto */
+    position: relative; /* Permite posicionamento absoluto de pseudo-elementos */
+    padding-bottom: 10px; /* Espaçamento inferior */
+}
+ 
+/*
+ * Linha decorativa abaixo dos títulos do rodapé
+ */
+.pts-footer-section h2::after {
+    content: ''; /* Conteúdo vazio */
+    position: absolute; /* Posicionamento absoluto */
+    bottom: 0;
+    left: 0;
+    width: 50px; /* Largura */
+    height: 2px; /* Altura */
+    background-color: var(--secondary-color); /* Cor da linha */
+}
+ 
+/*
+ * Parágrafos no rodapé
+ */
+.pts-footer-section p {
+    margin-bottom: 0.5rem; /* Espaçamento inferior */
+    line-height: 1.5; /* Espaçamento entre linhas */
+}
+ 
+/*
+ * ===== RESPONSIVIDADE (CORREÇÕES PARA O MENU) =====
+ * Ajustes para diferentes tamanhos de tela
+ */
+ 
+/* Telas até 992px de largura */
+@media (max-width: 992px) {
+    .area-header {
+        padding: 0 1rem; /* Reduz espaçamento interno */
+    }
+   
+    .nav-list {
+        margin-left: 40px; /* Reduz margem esquerda */
+        gap: 15px; /* Reduz espaçamento entre itens */
+    }
+}
+ 
+/* Telas até 768px de largura */
+@media (max-width: 768px) {
+    :root {
+        --header-height: 80px; /* Reduz altura do cabeçalho */
+    }
+   
+    /* Menu mobile sem JS - Mostra sempre */
+    .area-header {
+        flex-wrap: wrap; /* Permite quebra de linha */
+        height: auto; /* Altura automática */
+        padding: 10px; /* Espaçamento interno */
+    }
+   
+    .area-logo {
+        order: 1; /* Define ordem no flexbox */
+        width: 100%; /* Largura total */
+        justify-content: flex-start; /* Alinha à esquerda */
+        padding-left: 10px; /* Espaçamento interno */
+    }
+   
+    .area-nav {
+        order: 3; /* Define ordem no flexbox */
+        width: 100%; /* Largura total */
+        margin-top: 10px; /* Espaçamento superior */
+    }
+   
+    .nav-list {
+        margin-left: 0; /* Remove margem esquerda */
+        flex-direction: column; /* Organiza itens em coluna */
+        gap: 0; /* Remove espaçamento entre itens */
+        background: white; /* Cor de fundo */
+        padding: 1rem; /* Espaçamento interno */
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra sutil */
+    }
+   
+    .nav-list-item {
+        width: 100%; /* Largura total */
+        padding: 0.5rem 0; /* Espaçamento interno */
+        border-bottom: 1px solid #eee; /* Borda inferior sutil */
+    }
+   
+    .nav-list-item:last-child {
+        border-bottom: none; /* Remove borda do último item */
+    }
+   
+    .submenu {
+        position: static; /* Volta ao fluxo normal */
+        width: 100%; /* Largura total */
+        box-shadow: none; /* Remove sombra */
+        margin-top: 0.5rem; /* Espaçamento superior */
+        margin-left: 1rem; /* Espaçamento esquerdo */
+        opacity: 1; /* Torna visível */
+        visibility: visible; /* Torna visível */
+        transform: none; /* Remove transformação */
+    }
+   
+    .area-contato-btn, .nav-store-location {
+        order: 2; /* Define ordem no flexbox */
+        height: auto; /* Altura automática */
+        padding: 10px; /* Espaçamento interno */
+    }
+   
+    /* Ajustes na seção emocional */
+    .pts-emotional-appeal h2 {
+        font-size: 1.5rem; /* Reduz tamanho da fonte */
+    }
+   
+    .pts-emotional-appeal p {
+        font-size: 1rem; /* Reduz tamanho da fonte */
+    }
+   
+    .pts-stat-item {
+        min-width: 120px; /* Reduz largura mínima */
+    }
+   
+    .pts-stat-number {
+        font-size: 1.5rem; /* Reduz tamanho da fonte */
+    }
+   
+    .pts-vakinha-info {
+        grid-template-columns: 1fr; /* Uma coluna apenas */
+    }
+}
+ 
+/* Telas até 576px de largura */
+@media (max-width: 576px) {
+    .pts-vakinha-container {
+        padding: 1.5rem; /* Reduz espaçamento interno */
+        margin: 1rem; /* Reduz margem */
+    }
+}
+ 

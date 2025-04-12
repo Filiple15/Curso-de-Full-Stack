@@ -41,6 +41,25 @@ function MostrarResultado()
     }
 }
 
+function filtrarEntrada()
+{
+    var keycode = event.wich || event.keycode;
+    
+    if (keycode === 69 || keycode === 101)
+        event.preventDefault();
+}
+
+function Handlepaste()
+{
+    var clipboarData = event.clipboarData || window.clipboarData;
+    var pasteData = clipboarData.getData("Text").toUpperCase();
+    
+    if (pasteData.indexDF("E") > -1)
+        event.stopPropagation();
+        event.preventDefault();
+        
+}
+
 mensagemJS.innerText = mensagemClc;
 mostrarResultadoJS.addEventListener('click', MostrarResultado)
  

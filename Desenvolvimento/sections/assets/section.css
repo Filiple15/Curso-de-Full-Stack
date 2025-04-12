@@ -1,0 +1,88 @@
+:root {
+    --letra: rgb(255, 0, 0);
+    --colorFontBaixo: rgb(231, 231, 231);
+  }
+
+* {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.default {
+    display: flex;
+    width: 100vw;
+    height: auto;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.default.dark {
+    background-color: black;
+}
+
+.default.light {
+    background-color: var(--colorFontBaixo);
+}
+
+.flex-col {
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.default .section-title {
+    font-size: 24px;
+    color: var(--letra);
+}
+
+.default .section-desc {
+    font-size: 12px;
+    color: var(--letra);
+}
+
+.default .section-title,
+.default .section-desc{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600px;
+    margin-bottom: 16px;
+}
+
+.section-body {
+    width: 1140px;
+    margin: auto;
+}
+
+.section-services {
+    display: flex;
+}
+
+.item-service {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    border-right: 1px solid #383838;
+    padding: 16px;
+}
+
+.item-service h4 {
+    margin-top: 16px;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: white;
+}
+
+.item-service p {
+    margin-top: 16px;
+    font-size: 13px;
+    color: aliceblue;
+    line-height: 24px;
+}
+
+.item-service:first-child {
+    border-left: 1px solid #383838;
+}
